@@ -62,8 +62,9 @@ export class TargetGameEngine {
                     
                     // Handle Centrifugo connect acknowledgment
                     if (data.id === 1 && !data.error) {
-                        console.log('✅ Centrifugo Authenticated! Subscribing to lucky-jet-96-5...');
-                        this.ws.send(JSON.stringify({ subscribe: { channel: 'lucky-jet-96-5' }, id: 2 }));
+                        const subChannel = 'lucky-jet-94';
+                        console.log(`✅ Centrifugo Authenticated! Subscribing to ${subChannel}...`);
+                        this.ws.send(JSON.stringify({ subscribe: { channel: subChannel }, id: 2 }));
                         continue;
                     }
                     

@@ -3,7 +3,7 @@
  *
  * Centrifugo WebSocket:
  *   wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle
- *   Channel: lucky-jet-96-5
+ *   Channel: lucky-jet-94
  *
  * Protocol events:
  *   eventType:"changeCoefficient"  → coefficient field = live multiplier
@@ -14,7 +14,7 @@
  */
 
 const BASE_URL     = 'https://crash-gateway-grm-cr.gamedev-tech.cc';
-const GAME_CHANNEL = 'lucky-jet-96-5';
+const GAME_CHANNEL = 'lucky-jet-94';
 
 // We use ws-proxy.cjs locally to bypass CORS and inject predictions
 const WS_LIFECYCLE = `ws://localhost:9001`;
@@ -22,7 +22,7 @@ const WS_SECONDARY = `ws://localhost:9002`;
 
 // Latest Active JWT token from live traffic
 export const ACTIVE_LIFECYCLE_TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNDExMTYsImlhdCI6MTc4ODA4MTkxNiwic3ViIjoiMDFhMDUxZmMtYzM3OS03YWQ0LWJiZWYtNDI2ZjBkOTU1MzRjIiwiY2hhbm5lbHMiOlsibHVja3ktamV0LTk2LTUiXX0.K-2lODKNxTuOTECGmP55JGatr4NsEWpTjL-ncXJ9-jo';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs';
 
 const DEFAULT_TOKEN = ACTIVE_LIFECYCLE_TOKEN;
 
@@ -428,7 +428,7 @@ export class TargetGameEngine {
     }
 
     // ── Push / publication ────────────────────────────────────────────────
-    // Server sends: {"push":{"channel":"lucky-jet-96-5","pub":{"data":{...}}}}
+    // Server sends: {"push":{"channel":"lucky-jet-94","pub":{"data":{...}}}}
     const pubData =
       frame.push?.pub?.data ??
       frame.pub?.data ??

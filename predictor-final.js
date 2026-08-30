@@ -7,7 +7,7 @@ const CONFIG = {
     base_url_main: 'wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle',
 
     client_name: "js",
-    jwt_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODc3NTIyNzAsImlhdCI6MTc4NzQ5MzA3MCwic3ViIjoiMDFhMDJlZTMtYTlkNC03MDllLWJmOTUtYTMzY2I3NTlhMGVhIiwiY2hhbm5lbHMiOlsibHVja3ktamV0LTk2LTUiXX0.GLAbOlkKFKMkdBaxG2qrXgw_KgTirxDJyacKVrxASss",
+    jwt_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs",
     connection_id: 1,
 };
 
@@ -22,7 +22,7 @@ function getChannelsFromToken(token) {
             return payload.channels || [];
         }
     } catch (e) {}
-    return [];
+    return ['lucky-jet-94'];
 }
 
 function main() {

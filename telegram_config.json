@@ -14,5 +14,5 @@
   "login_url": "https://1play.gamedev-tech.cc",
   "show_timestamps": true,
   "target_gateway_ws": "wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle",
-  "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNTU3NzEsImlhdCI6MTc4ODA5NjU3MSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.CSLdKsc6dtWyGDzilGQkgIB0SpmLmfAmxaznBWnqzlk"
+  "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs"
 }

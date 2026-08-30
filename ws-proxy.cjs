@@ -26,7 +26,7 @@ const ORIGIN = 'https://1play.gamedev-tech.cc';
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36';
 
 // Active Fallback JWT Token
-const ACTIVE_JWT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNDExMTYsImlhdCI6MTc4ODA4MTkxNiwic3ViIjoiMDFhMDUxZmMtYzM3OS03YWQ0LWJiZWYtNDI2ZjBkOTU1MzRjIiwiY2hhbm5lbHMiOlsibHVja3ktamV0LTk2LTUiXX0.K-2lODKNxTuOTECGmP55JGatr4NsEWpTjL-ncXJ9-jo";
+const ACTIVE_JWT_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs";
 
 // --- Broadcaster setup (port 8080) for external Python tools ---
 const broadcastClients = new Set();
@@ -132,10 +132,10 @@ function getChannelsFromToken(token) {
     const parts = token.split('.');
     if (parts.length >= 2) {
       const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf8'));
-      return payload.channels || [];
+      return Array.isArray(payload.channels) && payload.channels.length > 0 ? payload.channels : ['lucky-jet-94'];
     }
   } catch (e) {}
-  return ['lucky-jet-96-5'];
+  return ['lucky-jet-94'];
 }
 
 function makeProxy(wss, targetUrl, label) {

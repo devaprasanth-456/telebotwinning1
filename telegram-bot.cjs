@@ -38,7 +38,7 @@ let config = {
   enabled: true,
   threshold: 2.00,
   target_gateway_ws: "wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle",
-  jwt_token: process.env.JWT_TOKEN || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNTU3NzEsImlhdCI6MTc4ODA5NjU3MSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.CSLdKsc6dtWyGDzilGQkgIB0SpmLmfAmxaznBWnqzlk",
+  jwt_token: process.env.JWT_TOKEN || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs",
   port: process.env.PORT || 3000,
   keep_alive_url: process.env.RENDER_EXTERNAL_URL || process.env.KEEP_ALIVE_URL || ""
 };
@@ -332,14 +332,14 @@ function getUptimeString() {
 
 function getChannelsFromToken(token) {
   try {
-    if (!token) return ['lucky-jet-96-5'];
+    if (!token) return ['lucky-jet-94'];
     const parts = token.split('.');
     if (parts.length >= 2) {
       const payload = JSON.parse(Buffer.from(parts[1], 'base64').toString('utf8'));
-      return Array.isArray(payload.channels) && payload.channels.length > 0 ? payload.channels : ['lucky-jet-96-5'];
+      return Array.isArray(payload.channels) && payload.channels.length > 0 ? payload.channels : ['lucky-jet-94'];
     }
   } catch (_) {}
-  return ['lucky-jet-96-5'];
+  return ['lucky-jet-94'];
 }
 
 function telegramRequest(endpoint, payload = {}) {

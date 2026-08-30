@@ -13,7 +13,7 @@ const telegramBot = require('./telegram-bot.cjs');
 // --- Configuration based on Live Traffic Analysis ---
 const CONFIG = {
     base_url_main: 'wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle',
-    jwt_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNDExMTYsImlhdCI6MTc4ODA4MTkxNiwic3ViIjoiMDFhMDUxZmMtYzM3OS03YWQ0LWJiZWYtNDI2ZjBkOTU1MzRjIiwiY2hhbm5lbHMiOlsibHVja3ktamV0LTk2LTUiXX0.K-2lODKNxTuOTECGmP55JGatr4NsEWpTjL-ncXJ9-jo",
+    jwt_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNjA0MjUsImlhdCI6MTc4ODEwMTIyNSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.x8XvxDcHvMjJB455Cp0l1qN3hsjEWni6_yJ4zbCnvMs",
     client_name: "js",
 };
 
@@ -244,7 +244,7 @@ function getChannelsFromToken(token) {
             return payload.channels || [];
         }
     } catch (e) {}
-    return ['lucky-jet-96-5'];
+    return ['lucky-jet-94'];
 }
 
 // --- 4. Main Connection Logic to Game Gateway ---

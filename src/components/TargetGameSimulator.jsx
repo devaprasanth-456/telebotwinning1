@@ -94,7 +94,7 @@ export default function TargetGameSimulator({ isOpen, onClose }) {
         <div className="flex flex-col gap-1 bg-black/60 border border-zinc-900 px-3 py-2 rounded-xl text-[10px]">
           <div className="flex items-center justify-between">
             <span className="text-zinc-400 flex items-center gap-1">
-              Channel: <code className="text-aviator-lime font-mono">lucky-jet-96-5</code>
+              Channel: <code className="text-aviator-lime font-mono">lucky-jet-94</code>
             </span>
             <span className={`font-black uppercase tracking-wider px-2 py-0.5 rounded text-[9px] ${
               tokenInvalid
