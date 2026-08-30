@@ -38,7 +38,7 @@ let config = {
   enabled: true,
   threshold: 2.00,
   target_gateway_ws: "wss://crash-gateway-grm-cr.gamedev-tech.cc/websocket/lifecycle",
-  jwt_token: process.env.JWT_TOKEN || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNDExMTYsImlhdCI6MTc4ODA4MTkxNiwic3ViIjoiMDFhMDUxZmMtYzM3OS03YWQ0LWJiZWYtNDI2ZjBkOTU1MzRjIiwiY2hhbm5lbHMiOlsibHVja3ktamV0LTk2LTUiXX0.K-2lODKNxTuOTECGmP55JGatr4NsEWpTjL-ncXJ9-jo",
+  jwt_token: process.env.JWT_TOKEN || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3ODgzNTU3NzEsImlhdCI6MTc4ODA5NjU3MSwic3ViIjoiMzEyMzI1MyIsImNoYW5uZWxzIjpbImx1Y2t5LWpldC05NCJdfQ.CSLdKsc6dtWyGDzilGQkgIB0SpmLmfAmxaznBWnqzlk",
   port: process.env.PORT || 3000,
   keep_alive_url: process.env.RENDER_EXTERNAL_URL || process.env.KEEP_ALIVE_URL || ""
 };
