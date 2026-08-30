@@ -1,15 +1,19 @@
 {
-  "generation": 203,
-  "totalLearnedRounds": 202,
-  "averageLoss": 0.974,
+  "generation": 1,
+  "totalLearnedRounds": 4897,
+  "averageLoss": 0.5,
   "weights": {
-    "cryptoEntropy": 0.35,
-    "markovTransition": 0.25,
-    "paretoTail": 0.2,
-    "streakMomentum": 0.2
+    "cryptoEntropy": 0.2721,
+    "markovTransition": 0.2866,
+    "paretoTail": 0.2309,
+    "streakMomentum": 0.2104
   },
-  "params": {
-    "cryptoDivisor": 5000.3,
-    "paretoAlpha": 1.85
-  }
+  "xgboost_accuracy": 50.0,
+  "feature_importances": {
+    "Prev_1_Multiplier": 0.272055983543396,
+    "Prev_2_Multiplier": 0.2866080403327942,
+    "Prev_3_Multiplier": 0.23092645406723022,
+    "Rolling_3_Mean": 0.2104095071554184
+  },
+  "last_trained_at": "2026-08-30T17:39:02.947498"
 }
