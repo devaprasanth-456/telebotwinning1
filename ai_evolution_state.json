@@ -1,23 +1,58 @@
 {
-  "generation": 108,
-  "totalLearnedRounds": 5004,
-  "averageLoss": 1.098,
+  "generation": 133,
+  "totalLearnedRounds": 5016,
+  "averageLoss": 0.472,
   "weights": {
-    "cryptoEntropy": 0.2721,
-    "markovTransition": 0.2866,
-    "paretoTail": 0.2309,
-    "streakMomentum": 0.2104
+    "cryptoEntropy": 0.2563,
+    "markovTransition": 0.2472,
+    "paretoTail": 0.2445,
+    "streakMomentum": 0.252
   },
   "params": {
     "cryptoDivisor": 5000.3,
-    "paretoAlpha": 1.85
+    "paretoAlpha": 1.0571
   },
-  "xgboost_accuracy": 50,
+  "xgboost_accuracy": 50.15,
+  "regression_rmse": 26.6,
+  "markov_transition_matrix": [
+    [
+      0.3826419213973799,
+      0.16102620087336245,
+      0.2794759825327511,
+      0.17685589519650655
+    ],
+    [
+      0.35159235668789807,
+      0.1375796178343949,
+      0.31210191082802546,
+      0.19872611464968154
+    ],
+    [
+      0.35194009530292714,
+      0.15793056501021102,
+      0.3056501021102791,
+      0.18447923757658272
+    ],
+    [
+      0.36314655172413796,
+      0.16163793103448276,
+      0.2834051724137931,
+      0.19181034482758622
+    ]
+  ],
   "feature_importances": {
-    "Prev_1_Multiplier": 0.272055983543396,
-    "Prev_2_Multiplier": 0.2866080403327942,
-    "Prev_3_Multiplier": 0.23092645406723022,
-    "Rolling_3_Mean": 0.2104095071554184
+    "Prev_1_Multiplier": 0.09489999711513519,
+    "Prev_2_Multiplier": 0.09149999916553497,
+    "Prev_3_Multiplier": 0.09049999713897705,
+    "Prev_4_Multiplier": 0.093299999833107,
+    "Prev_5_Multiplier": 0.09269999712705612,
+    "Rolling_3_Mean": 0.0934000015258789,
+    "Rolling_5_Mean": 0.0966000035405159,
+    "Rolling_10_Mean": 0.0885000005364418,
+    "Rolling_5_Std": 0.10040000081062317,
+    "Rolling_EMA_5": 0.08749999850988388,
+    "Under_Streak": 0.07069999724626541
   },
-  "last_trained_at": "2026-08-30T17:39:02.947498"
+  "active_dataset": "newverification.csv",
+  "last_trained_at": "2026-08-30T21:08:18.882874"
 }
