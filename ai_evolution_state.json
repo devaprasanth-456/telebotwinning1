@@ -1,7 +1,7 @@
 {
-  "generation": 137,
-  "totalLearnedRounds": 5019,
-  "averageLoss": 0.516,
+  "generation": 145,
+  "totalLearnedRounds": 5027,
+  "averageLoss": 0.59,
   "weights": {
     "cryptoEntropy": 0.2537,
     "markovTransition": 0.2546,
