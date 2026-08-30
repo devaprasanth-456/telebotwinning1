@@ -1,14 +1,18 @@
 {
-  "generation": 1,
-  "totalLearnedRounds": 4897,
-  "averageLoss": 0.5,
+  "generation": 72,
+  "totalLearnedRounds": 4968,
+  "averageLoss": 0.434,
   "weights": {
     "cryptoEntropy": 0.2721,
     "markovTransition": 0.2866,
     "paretoTail": 0.2309,
     "streakMomentum": 0.2104
   },
-  "xgboost_accuracy": 50.0,
+  "params": {
+    "cryptoDivisor": 5000.3,
+    "paretoAlpha": 1.85
+  },
+  "xgboost_accuracy": 50,
   "feature_importances": {
     "Prev_1_Multiplier": 0.272055983543396,
     "Prev_2_Multiplier": 0.2866080403327942,

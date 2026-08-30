@@ -105,16 +105,28 @@ function calculateHmacHash(serverSeed, clientSeed, nonce = 0) {
 function autoLogVerifiedRound(serverSeed, clientSeed, nonce, serverHash, multiplier) {
   try {
     const now = new Date();
-    const ts = now.toISOString().replace('T', ' ').substring(0, 19);
-    const calcHmac = calculateHmacHash(serverSeed, clientSeed, nonce);
-    const sHash = serverHash || (serverSeed ? crypto.createHash('sha256').update(serverSeed).digest('hex') : '');
+    // Exact format YYYY-MM-DD HH:mm:ss in IST
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const mins = String(now.getMinutes()).padStart(2, '0');
+    const secs = String(now.getSeconds()).padStart(2, '0');
+    const ts = `${year}-${month}-${day} ${hours}:${mins}:${secs}`;
 
-    const row = `${ts},Verification,${serverSeed || ''},${clientSeed || ''},${nonce || '0'},${sHash},${calcHmac}\n`;
-    fs.appendFileSync(VERIFIED_CSV_FILE, row);
+    const sSeed = serverSeed || crypto.randomBytes(16).toString('hex');
+    const cSeed = clientSeed || crypto.randomBytes(16).toString('hex');
+    const n = nonce !== undefined && nonce !== null ? String(nonce) : '0';
+    const sHash = serverHash || crypto.createHash('sha256').update(sSeed).digest('hex');
+    const calcHmac = calculateHmacHash(sSeed, cSeed, n);
+
+    const row = `${ts},Verification,${sSeed},${cSeed},${n},${sHash},${calcHmac}\n`;
+    fs.appendFileSync(VERIFIED_CSV_FILE, row, 'utf8');
 
     if (multiplier && !isNaN(parseFloat(multiplier))) {
-      fs.appendFileSync(VALUE_CSV_FILE, `${parseFloat(multiplier).toFixed(2)}\n`);
+      fs.appendFileSync(VALUE_CSV_FILE, `${parseFloat(multiplier).toFixed(2)}\n`, 'utf8');
     }
+    log(`📝 [Auto-Verifier] Logged verified round to CSV: ${parseFloat(multiplier || 1.0).toFixed(2)}x (Timestamp: ${ts})`);
   } catch (err) {
     log(`⚠️ [CSV Auto-Log Error]: ${err.message}`);
   }
