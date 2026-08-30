@@ -524,6 +524,7 @@ async function sendPredictionSignal(predictedCrash, confidence = null, roundId =
   if (now - lastPredTime < 3000) return;
   lastPredTime = now;
 
+  // Run comprehensive multi-model ensemble computation in background for maximum accuracy
   const ens = calculateComprehensiveEnsemblePrediction(
     currentRoundSeeds.serverSeed,
     currentRoundSeeds.clientSeed,
@@ -536,31 +537,10 @@ async function sendPredictionSignal(predictedCrash, confidence = null, roundId =
   const time = getTimeString();
   totalPredictionsSent++;
 
-  let signalMessage = '';
-  if (ens.isOver2x) {
-    signalMessage = 
-      `🟢 <b>BET - Odds over ${config.threshold.toFixed(2)}x</b> ${time}\n\n` +
-      `🎯 <b>Predicted Target:</b> <code>${ens.predictedMultiplier.toFixed(2)}x</code> (Confidence: ${ens.confidence}%)\n` +
-      `💡 <b>Safe Cashout Window:</b> <code>${ens.safeMin.toFixed(2)}x - ${ens.safeMax.toFixed(2)}x</code>\n\n` +
-      `📊 <b>Multi-Model AI Consensus:</b>\n` +
-      `• <b>XGBoost Over-2X Prob:</b> ${ens.over2xProb}%\n` +
-      `• <b>Markov Transition:</b> Safe Zone (${ens.markovOver2xProb}% Over-2X)\n` +
-      `• <b>Pareto Tail Shape (α):</b> ${ens.paretoAlpha}\n` +
-      (ens.hmac52 ? `• <b>Provably Fair 52-bit HMAC:</b> ${ens.hmac52}x (Deterministic)\n` : '') +
-      (ens.sha512 ? `• <b>SHA-512 Modulo Mapping:</b> ${ens.sha512}x\n` : '') +
-      (ens.underStreak >= 3 ? `• <b>Streak Momentum:</b> Rebound Watch (${ens.underStreak} sub-2x rounds)\n` : '') +
-      `\n⚡ <b>AI Evolution:</b> Gen #${ens.generation} | ${ens.totalLearnedRounds.toLocaleString()}+ Rounds Learned`;
-  } else {
-    signalMessage = 
-      `🔴 <b>WAIT - Odds under ${config.threshold.toFixed(2)}x</b> ${time}\n\n` +
-      `⚠️ <b>Predicted Target:</b> <code>${ens.predictedMultiplier.toFixed(2)}x</code> (Confidence: ${ens.confidence}%)\n` +
-      `💡 <b>Recommendation:</b> Skip this round or Exit Early (&lt; ${ens.safeMax.toFixed(2)}x)\n\n` +
-      `📊 <b>Multi-Model AI Consensus:</b>\n` +
-      `• <b>XGBoost Over-2X Prob:</b> ${ens.over2xProb}% (Under-2X Zone)\n` +
-      `• <b>Markov State:</b> Sub-2X Damping Cluster\n` +
-      `• <b>Rolling 3-Round Mean:</b> ${ens.rollingMean3}x\n` +
-      `\n⚡ <b>AI Evolution:</b> Gen #${ens.generation} | ${ens.totalLearnedRounds.toLocaleString()}+ Rounds Learned`;
-  }
+  // Clean 1-line Telegram Output: Over or Under 2.00x
+  const signalMessage = ens.isOver2x
+    ? `🟢 <b>BET - Odds over ${config.threshold.toFixed(2)}x</b> ${time}`
+    : `🔴 <b>WAIT - Odds under ${config.threshold.toFixed(2)}x</b> ${time}`;
 
   await broadcast(signalMessage);
 }
@@ -593,13 +573,9 @@ async function sendFlewAway(actualCrash, roundId = null) {
     runOnlineLearning(crashVal, currentRoundPrediction);
   }
 
-  const resultBadge = crashVal >= config.threshold ? '🟢 OVER 2.00x HIT' : '🔴 UNDER 2.00x';
   const time = getTimeString();
-
-  const crashText = 
-    `🚀 <b>FLEW AWAY! ${crashVal.toFixed(2)}x</b> ${time}\n` +
-    `📊 <b>Result:</b> ${resultBadge}\n` +
-    `📝 <b>Logged:</b> newverification.csv | 🧠 <b>Online AI Loss:</b> ${aiEvolutionState.averageLoss}`;
+  // Clean 1-line Telegram Output: FLEW AWAY! <value> <time>
+  const crashText = `FLEW AWAY! <b>${crashVal.toFixed(2)}x</b> ${time}`;
 
   await broadcast(crashText);
 }

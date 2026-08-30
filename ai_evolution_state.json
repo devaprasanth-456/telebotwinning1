@@ -1,25 +1,25 @@
 {
-  "generation": 133,
-  "totalLearnedRounds": 5016,
-  "averageLoss": 0.472,
+  "generation": 137,
+  "totalLearnedRounds": 5019,
+  "averageLoss": 0.516,
   "weights": {
-    "cryptoEntropy": 0.2563,
-    "markovTransition": 0.2472,
-    "paretoTail": 0.2445,
-    "streakMomentum": 0.252
+    "cryptoEntropy": 0.2537,
+    "markovTransition": 0.2546,
+    "paretoTail": 0.2295,
+    "streakMomentum": 0.2622
   },
   "params": {
     "cryptoDivisor": 5000.3,
-    "paretoAlpha": 1.0571
+    "paretoAlpha": 1.0574
   },
-  "xgboost_accuracy": 50.15,
-  "regression_rmse": 26.6,
+  "xgboost_accuracy": 50.6,
+  "regression_rmse": 26.59,
   "markov_transition_matrix": [
     [
-      0.3826419213973799,
-      0.16102620087336245,
-      0.2794759825327511,
-      0.17685589519650655
+      0.38276990185387133,
+      0.1608505997818975,
+      0.2797164667393675,
+      0.1766630316248637
     ],
     [
       0.35159235668789807,
@@ -34,25 +34,25 @@
       0.18447923757658272
     ],
     [
-      0.36314655172413796,
-      0.16163793103448276,
-      0.2834051724137931,
-      0.19181034482758622
+      0.3638320775026911,
+      0.16146393972012918,
+      0.2831001076426265,
+      0.1916038751345533
     ]
   ],
   "feature_importances": {
-    "Prev_1_Multiplier": 0.09489999711513519,
-    "Prev_2_Multiplier": 0.09149999916553497,
-    "Prev_3_Multiplier": 0.09049999713897705,
-    "Prev_4_Multiplier": 0.093299999833107,
-    "Prev_5_Multiplier": 0.09269999712705612,
-    "Rolling_3_Mean": 0.0934000015258789,
-    "Rolling_5_Mean": 0.0966000035405159,
-    "Rolling_10_Mean": 0.0885000005364418,
-    "Rolling_5_Std": 0.10040000081062317,
-    "Rolling_EMA_5": 0.08749999850988388,
-    "Under_Streak": 0.07069999724626541
+    "Prev_1_Multiplier": 0.09309999644756317,
+    "Prev_2_Multiplier": 0.0934000015258789,
+    "Prev_3_Multiplier": 0.08420000225305557,
+    "Prev_4_Multiplier": 0.09619999676942825,
+    "Prev_5_Multiplier": 0.09220000356435776,
+    "Rolling_3_Mean": 0.09610000252723694,
+    "Rolling_5_Mean": 0.09839999675750732,
+    "Rolling_10_Mean": 0.08380000293254852,
+    "Rolling_5_Std": 0.10400000214576721,
+    "Rolling_EMA_5": 0.08980000019073486,
+    "Under_Streak": 0.06870000064373016
   },
   "active_dataset": "newverification.csv",
-  "last_trained_at": "2026-08-30T21:08:18.882874"
+  "last_trained_at": "2026-08-30T21:09:54.587656"
 }
