@@ -1,0 +1,16 @@
+{
+  "name": "We Give Answer v14",
+  "short_name": "WeGiveAnswer",
+  "description": "Secure Target Signal Predictor for Crash Games",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#e71a23",
+  "icons": [
+    {
+      "src": "/plane.png",
+      "sizes": "520x279",
+      "type": "image/png"
+    }
+  ]
+}

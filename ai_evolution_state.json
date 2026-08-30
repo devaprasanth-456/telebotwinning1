@@ -1,0 +1,15 @@
+{
+  "generation": 203,
+  "totalLearnedRounds": 202,
+  "averageLoss": 0.974,
+  "weights": {
+    "cryptoEntropy": 0.35,
+    "markovTransition": 0.25,
+    "paretoTail": 0.2,
+    "streakMomentum": 0.2
+  },
+  "params": {
+    "cryptoDivisor": 5000.3,
+    "paretoAlpha": 1.85
+  }
+}

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: darkworld-telegram-bot
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node telegram-bot.cjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.0
+      - key: BOT_TOKEN
+        value: "8996586274:AAEmM5lqjgc6FwDErYt69CwqSqOCPGPSDzw"
+      - key: CHAT_ID
+        value: "6551286352"
+      - key: PORT
+        value: 10000

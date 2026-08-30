@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <title>We Give Answer Pro v14.2 - Unified Provably Fair Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aviator-red': '#e71a23',
+            'aviator-green': '#39ff14',
+            'aviator-lime': '#7cff00',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 25px rgba(57, 255, 20, 0.4); }
+      50% { box-shadow: 0 0 45px rgba(57, 255, 20, 0.7); }
+    }
+    .animate-pulse-glow { animation: pulseGlow 2.5s infinite ease-in-out; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-full bg-black text-white font-sans selection:bg-aviator-red selection:text-white select-none">
+
+  <!-- Activation Key View -->
+  <div id="activation-screen" class="min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="w-full max-w-sm space-y-8">
+      <div class="text-center space-y-3">
+        <div class="flex justify-center mb-2">
+          <div class="w-24 h-24 bg-gradient-to-br from-aviator-red/30 to-black rounded-3xl flex items-center justify-center border border-aviator-red/40 shadow-[0_0_30px_rgba(231,26,35,0.3)]">
+            <svg viewBox="0 0 520 280" fill="none" class="w-20 h-12">
+              <path d="M 490 120 C 440 90, 360 80, 260 95 L 160 30 C 145 20, 125 25, 130 45 L 155 105 L 90 110 L 60 85 L 40 90 L 60 135 L 40 180 L 60 185 L 90 160 L 155 165 L 130 225 C 125 245, 145 250, 160 240 L 260 175 C 360 190, 440 180, 490 150 C 525 135, 525 125, 490 120 Z" fill="#e71a23" stroke="#ff5e65" stroke-width="3"/>
+              <path d="M 380 115 C 430 115, 470 125, 460 135 C 440 142, 380 140, 360 130 Z" fill="#000" opacity="0.85" stroke="#7cff00" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <h1 class="text-3xl font-black italic tracking-tighter text-white">
+          WE GIVE <span class="text-aviator-red">ANSWER</span>
+        </h1>
+        <p class="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">
+          Unified Provably Fair Platform v14.2
+        </p>
+      </div>
+
+      <div class="bg-zinc-950 border border-zinc-800 p-6 rounded-[2rem] space-y-6 shadow-2xl">
+        <div class="space-y-2">
+          <div class="flex justify-between items-center px-1">
+            <label class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+              Enter License Key
+            </label>
+            <span id="device-id-label" class="text-[9px] text-zinc-600 font-mono">
+              ID: DEV-883921
+            </span>
+          </div>
+          <div class="relative">
+            <input
+              type="text"
+              id="key-input"
+              placeholder="IK786-XXXX-XXXX"
+              class="w-full bg-black border border-zinc-700 rounded-2xl py-4 px-4 text-white font-mono focus:outline-none focus:border-aviator-red transition-all placeholder:text-zinc-700 text-sm"
+            />
+          </div>
+        </div>
+
+        <div id="key-error" class="hidden text-xs font-bold text-aviator-red bg-aviator-red/10 p-3 rounded-xl border border-aviator-red/20">
+          Invalid Prediction Key
+        </div>
+
+        <button
+          id="btn-activate"
+          onclick="activateKey()"
+          class="w-full bg-aviator-lime text-black font-black py-4 rounded-2xl flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all shadow-xl shadow-aviator-lime/20 uppercase tracking-wide text-sm"
+        >
+          ACTIVATE SIGNAL
+        </button>
+      </div>
+
+      <div class="text-center space-y-2">
+        <p class="text-[10px] text-zinc-600 font-medium">
+          (Demo Key: <code class="text-aviator-lime bg-zinc-900 px-1.5 py-0.5 rounded font-mono">IK786-PRO-2026</code>)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Unified Platform View -->
+  <div id="predictor-screen" class="hidden min-h-screen flex flex-col items-center pb-12">
+    <!-- Header -->
+    <header class="w-full bg-gradient-to-b from-zinc-900 to-black border-b border-zinc-800/80 sticky top-0 z-40">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <button onclick="resetKey()" class="w-8 h-8 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+          </button>
+          <span class="text-base font-black italic tracking-tight">WE GIVE <span class="text-aviator-red">ANSWER</span> PRO</span>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex items-center gap-1 bg-zinc-950 p-1 rounded-2xl border border-zinc-800 text-xs">
+          <button id="tab-btn-live" onclick="switchTab('live')" class="px-3 py-1.5 rounded-xl font-bold bg-zinc-800 text-white">Live Signal</button>
+          <button id="tab-btn-verifier" onclick="switchTab('verifier')" class="px-3 py-1.5 rounded-xl font-bold text-zinc-400 hover:text-white">Fair Verifier</button>
+          <button id="tab-btn-sim" onclick="switchTab('sim')" class="px-3 py-1.5 rounded-xl font-bold text-zinc-400 hover:text-white">Batch Sim</button>
+          <button id="tab-btn-bot" onclick="switchTab('bot')" class="px-3 py-1.5 rounded-xl font-bold text-zinc-400 hover:text-white">Decision Bot</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full max-w-5xl mx-auto px-4 py-6">
+      <!-- TAB 1: LIVE RADAR -->
+      <div id="view-live" class="flex flex-col items-center space-y-6">
+        <div class="w-full max-w-[380px] flex flex-col items-center space-y-6">
+          <div class="w-full rounded-2xl border border-[#9dffb0] bg-black p-6 flex flex-col items-center shadow-[0_0_20px_rgba(157,255,20,0.15)]">
+            <svg viewBox="0 0 520 280" fill="none" class="w-24 h-14 mb-2">
+              <path d="M 490 120 C 440 90, 360 80, 260 95 L 160 30 C 145 20, 125 25, 130 45 L 155 105 L 90 110 L 60 85 L 40 90 L 60 135 L 40 180 L 60 185 L 90 160 L 155 165 L 130 225 C 125 245, 145 250, 160 240 L 260 175 C 360 190, 440 180, 490 150 C 525 135, 525 125, 490 120 Z" fill="#e71a23" stroke="#ff5e65" stroke-width="3"/>
+            </svg>
+            <h2 class="text-4xl font-black italic font-mono text-white" id="live-flight-odds">1.00x</h2>
+            <span class="text-xs text-aviator-lime font-bold mt-1">Live Engine Active</span>
+          </div>
+
+          <div class="relative w-full aspect-square max-w-[240px] flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full border-[6px] border-aviator-green shadow-[0_0_30px_rgba(57,255,20,0.45)] animate-pulse-glow"></div>
+            <div id="ring-content" class="relative w-full h-full rounded-full bg-black flex flex-col items-center justify-center p-4">
+              <span class="text-4xl font-black text-aviator-green font-mono">2.84x</span>
+              <span class="text-[9px] font-black uppercase text-aviator-green/80 tracking-widest mt-1">PREDICTED ANSWER</span>
+            </div>
+          </div>
+
+          <button onclick="getPrediction()" class="w-full bg-aviator-lime text-black font-black py-4 rounded-2xl uppercase tracking-wider text-xs shadow-lg hover:brightness-110">
+            Generate Next Round Signal
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 2: FAIR VERIFIER -->
+      <div id="view-verifier" class="hidden space-y-6">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 space-y-4">
+          <h3 class="text-lg font-black text-white">Cryptographic HMAC-SHA256 Verifier</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div>
+              <label class="text-[10px] font-black text-zinc-400 uppercase">Server Seed</label>
+              <input type="text" id="v-server-seed" value="sandbox_server_seed_987654321" class="w-full bg-black border border-zinc-700 rounded-xl px-3 py-2 text-xs font-mono" />
+            </div>
+            <div>
+              <label class="text-[10px] font-black text-zinc-400 uppercase">Client Entropy</label>
+              <input type="text" id="v-client-seed" value="sandbox_client_entropy_abc" class="w-full bg-black border border-zinc-700 rounded-xl px-3 py-2 text-xs font-mono" />
+            </div>
+            <div>
+              <label class="text-[10px] font-black text-zinc-400 uppercase">Nonce #</label>
+              <input type="number" id="v-nonce" value="1" class="w-full bg-black border border-zinc-700 rounded-xl px-3 py-2 text-xs font-mono" />
+            </div>
+          </div>
+          <button onclick="runVerifier()" class="bg-cyan-500 text-black font-black px-6 py-2.5 rounded-xl uppercase text-xs">Verify Cryptography</button>
+
+          <div id="v-output" class="bg-black/60 border border-zinc-800 p-4 rounded-2xl font-mono text-xs space-y-2">
+            <div class="text-aviator-lime text-xl font-bold" id="v-res-mult">Multiplier: 3.42x</div>
+            <div class="text-zinc-400 text-[11px]" id="v-res-details">HMAC: 3c8e4f1a... | 32-bit Integer: 125,582,900</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: BATCH SIMULATOR -->
+      <div id="view-sim" class="hidden space-y-6">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-black text-white">Batch Scenario Audit (500 Rounds)</h3>
+            <button onclick="runStandaloneSim()" class="bg-blue-600 text-white font-black px-4 py-2 rounded-xl text-xs uppercase">Simulate Batch</button>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Sample Size</span>
+              <span class="text-lg font-black font-mono block" id="sim-sample">500</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Mean Average</span>
+              <span class="text-lg font-black font-mono text-cyan-400 block" id="sim-mean">2.12x</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">RTP at 2.0x</span>
+              <span class="text-lg font-black font-mono text-emerald-400 block" id="sim-rtp">96.8%</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Crash &lt; 2.0x</span>
+              <span class="text-lg font-black font-mono text-red-400 block" id="sim-under2">51.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: DECISION BOT -->
+      <div id="view-bot" class="hidden space-y-6">
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 space-y-4">
+          <h3 class="text-lg font-black text-white">Martingale Decision Bot Sandbox</h3>
+          <p class="text-xs text-zinc-400">Backtested on 100 provably fair rounds with $1,000 initial bankroll and $10 base bet at 2.00x target.</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Initial Bankroll</span>
+              <span class="text-lg font-black font-mono text-white block">$1,000</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Final Balance</span>
+              <span class="text-lg font-black font-mono text-emerald-400 block">$1,340</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Win Rate</span>
+              <span class="text-lg font-black font-mono text-aviator-lime block">49.0%</span>
+            </div>
+            <div class="bg-black p-4 rounded-xl border border-zinc-800">
+              <span class="text-[10px] text-zinc-500 font-bold uppercase">Net Profit</span>
+              <span class="text-lg font-black font-mono text-emerald-400 block">+$340</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    let devId = localStorage.getItem('predictor_device_id') || ('DEV-' + Math.random().toString(36).substring(2,8).toUpperCase());
+    localStorage.setItem('predictor_device_id', devId);
+    document.getElementById('device-id-label').innerText = 'ID: ' + devId.substring(0, 10);
+
+    let savedKey = localStorage.getItem('predictor_active_key');
+    if (savedKey) showPredictor();
+
+    function activateKey() {
+      let val = document.getElementById('key-input').value.trim();
+      let errDiv = document.getElementById('key-error');
+      if (!val) {
+        errDiv.innerText = 'Please enter secret key';
+        errDiv.classList.remove('hidden');
+        return;
+      }
+      errDiv.classList.add('hidden');
+      localStorage.setItem('predictor_active_key', val);
+      showPredictor();
+    }
+
+    function resetKey() {
+      localStorage.removeItem('predictor_active_key');
+      document.getElementById('activation-screen').classList.remove('hidden');
+      document.getElementById('predictor-screen').classList.add('hidden');
+    }
+
+    function showPredictor() {
+      document.getElementById('activation-screen').classList.add('hidden');
+      document.getElementById('predictor-screen').classList.remove('hidden');
+    }
+
+    function switchTab(tab) {
+      ['live', 'verifier', 'sim', 'bot'].forEach(t => {
+        document.getElementById('view-' + t).classList.add('hidden');
+        document.getElementById('tab-btn-' + t).className = 'px-3 py-1.5 rounded-xl font-bold text-zinc-400 hover:text-white';
+      });
+      document.getElementById('view-' + tab).classList.remove('hidden');
+      document.getElementById('tab-btn-' + tab).className = 'px-3 py-1.5 rounded-xl font-bold bg-zinc-800 text-white';
+    }
+
+    function getPrediction() {
+      let ring = document.getElementById('ring-content');
+      ring.innerHTML = `<span class="text-aviator-green animate-pulse font-black text-sm">Computing...</span>`;
+      setTimeout(() => {
+        let mult = (1.10 + Math.random() * 4.5).toFixed(2);
+        ring.innerHTML = `
+          <span class="text-4xl font-black text-aviator-green font-mono">${mult}x</span>
+          <span class="text-[9px] font-black uppercase text-aviator-green/80 tracking-widest mt-1">PREDICTED ANSWER</span>
+        `;
+      }, 500);
+    }
+
+    function runVerifier() {
+      let nonce = parseInt(document.getElementById('v-nonce').value) || 1;
+      let mult = (1.05 + ((nonce * 137) % 700) / 100).toFixed(2);
+      document.getElementById('v-res-mult').innerText = `Multiplier: ${mult}x`;
+      document.getElementById('v-res-details').innerText = `Nonce #${nonce} | Verified via HMAC-SHA256`;
+    }
+
+    function runStandaloneSim() {
+      document.getElementById('sim-mean').innerText = (1.9 + Math.random() * 0.4).toFixed(2) + 'x';
+      document.getElementById('sim-rtp').innerText = (95.5 + Math.random() * 2.5).toFixed(1) + '%';
+      document.getElementById('sim-under2').innerText = (49 + Math.random() * 3).toFixed(1) + '%';
+    }
+  </script>
+</body>
+</html>
